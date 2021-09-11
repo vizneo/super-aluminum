@@ -1,0 +1,77 @@
+stackbitVersion: ~0.3.0
+ssgName: hugo
+publishDir: public
+dataDir: data
+pagesDir: content
+assets:
+  referenceType: static
+  staticDir: static
+  uploadDir: assets
+  publicPath: /
+models:
+  section:
+    type: page
+    label: Section
+    folder: sections
+    match: '*'
+    exclude:
+      - index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: afterTitle
+        label: After Title
+  section_1:
+    type: page
+    label: Section 1
+    folder: sections
+    match:
+      - index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: boolean
+        name: headless
+        label: Headless
+      - type: list
+        name: resources
+        label: Resources
+        items:
+          type: object
+          fields:
+            - type: string
+              name: name
+              label: Name
+            - type: string
+              name: src
+              label: Src
+  feature:
+    type: page
+    label: Feature
+    folder: sections/features
+    match: '*'
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+      - type: image
+        name: icon
+        label: Icon
+  page_1:
+    type: page
+    label: Page 1
+    match: '*'
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
